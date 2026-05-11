@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+server/logs/
+server/node_modules/
+server/uploads/temp/
+server/uploads/*.pdf
+server/uploads/processed/*.json
