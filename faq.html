@@ -3,365 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - 🩺 HackNova Healthcare Helpdesk</title>
+    <title>FAQ - Kadhali MedAssist</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <style>
-        :root {
-            --primary-blue: #007bff;
-            --light-gray: #f8f9fa;
-            --dark-gray: #212529;
-            --chat-bg: #f1f3f4;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-gray);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-blue), #0056b3);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .navbar-nav .nav-link {
-            color: white !important;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #e3f2fd !important;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: #ffd700 !important;
-            font-weight: 600;
-        }
-
-        /* Header Styles */
-        .header-section {
-            background: linear-gradient(135deg, #74b9ff 0%, #ffffff 100%);
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .main-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #6c757d;
-            font-weight: 300;
-        }
-
-        /* Card Styles */
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary-blue), #0056b3);
-            color: white;
-            border-radius: 15px 15px 0 0 !important;
-            padding: 1.5rem;
-            border: none;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        /* FAQ Styles */
-        .faq-item {
-            border: none;
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .faq-item:hover {
-            background: #e3f2fd;
-            transform: translateX(5px);
-        }
-
-        .faq-link {
-            color: var(--dark-gray);
-            text-decoration: none;
-            padding: 1rem;
-            display: block;
-            border-radius: 10px;
-        }
-
-        .faq-link:hover {
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        /* Chat Styles */
-        .chat-container {
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-            background: var(--chat-bg);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .message {
-            margin-bottom: 1rem;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message-bubble {
-            max-width: 80%;
-            padding: 0.75rem 1rem;
-            border-radius: 18px;
-            position: relative;
-            word-wrap: break-word;
-        }
-
-        .user-message {
-            background: var(--primary-blue);
-            color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 5px;
-        }
-
-        .bot-message {
-            background: white;
-            color: var(--dark-gray);
-            border: 1px solid #e0e0e0;
-            border-bottom-left-radius: 5px;
-        }
-
-        .message-time {
-            font-size: 0.7rem;
-            color: #6c757d;
-            margin-top: 0.25rem;
-            text-align: right;
-        }
-
-        .bot-message .message-time {
-            text-align: left;
-        }
-
-        .chat-input {
-            border-radius: 25px;
-            border: 2px solid #e0e0e0;
-            padding: 0.75rem 1.25rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .chat-input:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-
-        .send-btn {
-            border-radius: 25px;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .send-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        .clear-btn {
-            background: #dc3545;
-            border: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .clear-btn:hover {
-            background: #c82333;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        .footer {
-            background: white;
-            border-top: 1px solid #e0e0e0;
-            padding: 1.5rem 0;
-            margin-top: auto;
-            text-align: center;
-            color: #6c757d;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .header-section {
-                padding: 2rem 0;
-            }
-            
-            .chat-container {
-                height: 400px;
-            }
-            
-            .message-bubble {
-                max-width: 90%;
-            }
-        }
-
-        /* Scrollbar Styling */
-        .chat-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-messages::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 3px;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
-
-        /* PDF Upload Styles */
-        .upload-zone {
-            border: 2px dashed #dee2e6;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: #f8f9fa;
-        }
-
-        .upload-zone:hover {
-            border-color: var(--primary-blue);
-            background: #e3f2fd;
-        }
-
-        .upload-zone.dragover {
-            border-color: var(--primary-blue);
-            background: #e3f2fd;
-            transform: scale(1.02);
-        }
-
-        .upload-content {
-            pointer-events: none;
-        }
-
-        .upload-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .upload-text {
-            font-size: 1.1rem;
-            color: #6c757d;
-            margin-bottom: 0.5rem;
-        }
-
-        .upload-link {
-            color: var(--primary-blue);
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .upload-link:hover {
-            color: #0056b3;
-        }
-
-        /* Results Styles */
-        .alert-light {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            color: #495057;
-        }
-
-        .alert-danger h6 {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        /* Structured Data Styles */
-        pre {
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        /* Button States */
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* Spinner Animation */
-        .spinner-border-sm {
-            width: 1rem;
-            height: 1rem;
-        }
-    </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html">🩺 Kadhali HealthCare</a>
+            <a class="navbar-brand" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+                Kadhali HealthCare
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -381,10 +43,10 @@
     <!-- Header Section -->
     <header class="header-section">
         <div class="container">
-            <div class="row justify-content-center text-center">
+            <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="main-title">🩺Kadhali MedAssist</h1>
-                    <p class="subtitle">Reliable Medical Answers in a Snap!</p>
+                    <h1 class="main-title">Kadhali MedAssist</h1>
+                    <p class="subtitle">Reliable medical answers and report analysis in a snap.</p>
                 </div>
             </div>
         </div>
@@ -394,10 +56,13 @@
     <main class="container mb-4">
         <div class="row g-4">
             <!-- FAQ Section -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 faq-card">
                 <div class="card feature-card">
                     <div class="card-header">
-                        <h2 class="card-title">📌 Frequently Asked Questions</h2>
+                        <h2 class="card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Frequently Asked Questions
+                        </h2>
                     </div>
                     <div class="card-body p-0">
                         <div class="list-group list-group-flush">
@@ -478,14 +143,17 @@
 
             <!-- PDF Analysis Section -->
             <div class="col-lg-6">
-                <div class="card feature-card">
+                <div class="card feature-card faq-card">
                     <div class="card-header">
-                        <h2 class="card-title">📄 Upload & Analyze Report</h2>
+                        <h2 class="card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+                            Upload & Analyze Report
+                        </h2>
                     </div>
                     <div class="card-body">
                         <!-- Consent Checkbox -->
                         <div class="mb-3">
-                            <div class="form-check">
+                            <div class="form-check text-start">
                                 <input class="form-check-input" type="checkbox" id="consentCheckbox" required>
                                 <label class="form-check-label" for="consentCheckbox">
                                     I consent to processing my medical data for analysis
@@ -496,8 +164,10 @@
                         <!-- Upload Area -->
                         <div id="pdfDropZone" class="upload-zone mb-3">
                             <div class="upload-content">
-                                <i class="upload-icon">📁</i>
-                                <p class="upload-text">Drag & drop your PDF here or <span class="upload-link">click to browse</span></p>
+                                <div class="upload-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                </div>
+                                <p class="upload-text">Drag & drop your PDF here or <span class="upload-link text-primary">click to browse</span></p>
                                 <small class="text-muted">Maximum file size: 10MB</small>
                             </div>
                             <input type="file" id="pdfFileInput" accept=".pdf" style="display: none;">
@@ -524,10 +194,10 @@
                             <label class="form-label">Choose Analysis Model:</label>
                             <div class="btn-group w-100" role="group">
                                 <button type="button" class="btn btn-outline-primary" id="openaiBtn">
-                                    🤖 OpenAI GPT-4
+                                    OpenAI GPT-4
                                 </button>
                                 <button type="button" class="btn btn-outline-primary" id="llamaBtn">
-                                    🦙 Llama 3 (Local)
+                                    Llama 3 (Local)
                                 </button>
                             </div>
                         </div>
@@ -536,15 +206,15 @@
                         <div id="resultsArea" style="display: none;">
                             <!-- Patient Summary -->
                             <div class="mb-3">
-                                <h5>📋 Patient Summary</h5>
+                                <h5>Patient Summary</h5>
                                 <div id="patientSummary" class="alert alert-light"></div>
                             </div>
-                            <div id="analysisDetails" class="mb-3"></div>
+                            <div id="analysisDetails" class="mb-3 text-start"></div>
 
                             <!-- Urgent Alerts -->
                             <div id="urgentAlerts" class="mb-3" style="display: none;">
                                 <div class="alert alert-danger">
-                                    <h6>🚨 URGENT — Seek Immediate Care</h6>
+                                    <h6>Seek Immediate Care</h6>
                                     <div id="urgentItems"></div>
                                 </div>
                             </div>
@@ -552,7 +222,7 @@
                             <!-- Structured Data Toggle -->
                             <div class="mb-3">
                                 <button class="btn btn-outline-secondary btn-sm" id="toggleStructuredData">
-                                    📊 View Structured Data
+                                    View Structured Data
                                 </button>
                             </div>
 
@@ -565,10 +235,10 @@
                             <!-- Action Buttons -->
                             <div class="d-grid gap-2">
                                 <button class="btn btn-success" id="downloadReportBtn">
-                                    📄 Download Report (PDF)
+                                    Download Report (PDF)
                                 </button>
                                 <button class="btn btn-outline-primary" id="askFollowupBtn">
-                                    ❓ Ask Follow-up Question
+                                    Ask Follow-up Question
                                 </button>
                             </div>
                         </div>
@@ -578,16 +248,19 @@
 
             <!-- Chatbot Section -->
             <div class="col-lg-6">
-                <div class="card feature-card">
+                <div class="card feature-card faq-card">
                     <div class="card-header">
-                        <h2 class="card-title">💬 Medibot</h2>
+                        <h2 class="card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                            Medibot
+                        </h2>
                     </div>
                     <div class="card-body">
                         <div class="chat-container">
                             <div class="chat-messages" id="chatMessages">
                                 <div class="message">
                                     <div class="message-bubble bot-message">
-                                        👋 Welcome to Kadhali MedAssist! Ask me about COVID, vaccines, symptoms, or general health.
+                                        Welcome to Kadhali MedAssist! Ask me about COVID, vaccines, symptoms, or general health.
                                         <div class="message-time" id="welcomeTime"></div>
                                     </div>
                                 </div>
@@ -604,7 +277,7 @@
                             
                             <div class="text-center">
                                 <button class="clear-btn" onclick="clearChat()">
-                                    🗑️ Clear Chat
+                                    Clear Chat
                                 </button>
                             </div>
                         </div>
@@ -631,24 +304,6 @@
             "covid symptoms": "COVID-19 symptoms include fever, dry cough, tiredness, and difficulty breathing. For severe symptoms, seek medical attention immediately. WHO: https://www.who.int/",
             "cold": "Cold symptoms include nasal congestion, sore throat, and cough. Rest, hydration, and over-the-counter medications can help. CDC: https://www.cdc.gov/",
             "diarrhoea": "Diarrhoea is a condition that causes frequent and loose bowel movements. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling hot': "Feeling hot is a common symptom of heat exhaustion. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling tired': "Feeling tired is a common symptom of fatigue. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling nauseous': "Feeling nauseous is a common symptom of nausea. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling dizzy': "Feeling dizzy is a common symptom of dizziness. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling headache': "Feeling headache is a common symptom of headache. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling pain': "Feeling pain is a common symptom of pain. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling chest pain': "Feeling chest pain is a common symptom of chest pain. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling shortness of breath': "Feeling shortness of breath is a common symptom of shortness of breath. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling cough': "Feeling cough is a common symptom of cough. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling fever': "Feeling fever is a common symptom of fever. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling headache': "Feeling headache is a common symptom of headache. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling pain': "Feeling pain is a common symptom of pain. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling chest pain': "Feeling chest pain is a common symptom of chest pain. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling shortness of breath': "Feeling shortness of breath is a common symptom of shortness of breath. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling cough': "Feeling cough is a common symptom of cough. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling fever': "Feeling fever is a common symptom of fever. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling headache': "Feeling headache is a common symptom of headache. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
-            'feeling pain': "Feeling pain is a common symptom of pain. It can be caused by a variety of factors, including infection, food poisoning, and certain medications. CDC: https://www.cdc.gov/",
             "pneumonia": "Pneumonia is an infection of the lungs. Symptoms include fever, cough, and shortness of breath. Seek medical attention if symptoms are severe. CDC: https://www.cdc.gov/",
             "covid": "COVID-19 is a respiratory illness. Common symptoms are fever, cough, and fatigue. Practice social distancing, wear masks, and get vaccinated. WHO: https://www.who.int/",
             "fever treatment": "For fever: rest, stay hydrated, use paracetamol/acetaminophen, and monitor temperature. If fever persists or is very high, consult a doctor. CDC: https://www.cdc.gov/",
@@ -741,7 +396,7 @@
             }
             
             // No match found
-            return "⚠️ Sorry, no direct answer found. Please check WHO (https://www.who.int) or CDC (https://www.cdc.gov) for reliable health information. You can also try rephrasing your question or check our FAQ section above.";
+            return "Sorry, no direct answer found. Please check WHO (https://www.who.int) or CDC (https://www.cdc.gov) for reliable health information. You can also try rephrasing your question or check our FAQ section above.";
         }
 
         // Clear chat function
@@ -750,7 +405,7 @@
             chatMessages.innerHTML = `
                 <div class="message">
                     <div class="message-bubble bot-message">
-                        👋 Welcome to HackNova Healthcare Helpdesk! Ask me about COVID, vaccines, symptoms, or general health.
+                        Welcome to Kadhali MedAssist! Ask me about COVID, vaccines, symptoms, or general health.
                         <div class="message-time">${getCurrentTime()}</div>
                     </div>
                 </div>
@@ -813,22 +468,26 @@
             
             // Add click animation to send button
             const sendBtn = document.querySelector('.send-btn');
-            sendBtn.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
+            if (sendBtn) {
+                sendBtn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            }
             
             // Add focus effect to input
             const userInput = document.getElementById('userInput');
-            userInput.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-            });
-            
-            userInput.addEventListener('blur', function() {
-                this.parentElement.style.transform = '';
-            });
+            if (userInput) {
+                userInput.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+                
+                userInput.addEventListener('blur', function() {
+                    this.parentElement.style.transform = '';
+                });
+            }
         });
 
         function initializePDFUploader() {
@@ -836,6 +495,8 @@
             const fileInput = document.getElementById('pdfFileInput');
             const consentCheckbox = document.getElementById('consentCheckbox');
             const sampleReportBtn = document.getElementById('sampleReportBtn');
+
+            if (!dropZone) return;
 
             // Click to browse
             dropZone.addEventListener('click', () => {
@@ -853,7 +514,7 @@
                 }
             });
 
-            sampleReportBtn.addEventListener('click', loadSampleReport);
+            if (sampleReportBtn) sampleReportBtn.addEventListener('click', loadSampleReport);
 
             // Drag and drop
             dropZone.addEventListener('dragover', (e) => {
@@ -906,8 +567,8 @@
             const openaiBtn = document.getElementById('openaiBtn');
             const llamaBtn = document.getElementById('llamaBtn');
 
-            openaiBtn.addEventListener('click', () => startAnalysis('openai'));
-            llamaBtn.addEventListener('click', () => startAnalysis('llama'));
+            if (openaiBtn) openaiBtn.addEventListener('click', () => startAnalysis('openai'));
+            if (llamaBtn) llamaBtn.addEventListener('click', () => startAnalysis('llama'));
         }
 
         function initializeResultsHandlers() {
@@ -915,9 +576,9 @@
             const downloadBtn = document.getElementById('downloadReportBtn');
             const followupBtn = document.getElementById('askFollowupBtn');
 
-            toggleBtn.addEventListener('click', toggleStructuredData);
-            downloadBtn.addEventListener('click', downloadReport);
-            followupBtn.addEventListener('click', askFollowup);
+            if (toggleBtn) toggleBtn.addEventListener('click', toggleStructuredData);
+            if (downloadBtn) downloadBtn.addEventListener('click', downloadReport);
+            if (followupBtn) followupBtn.addEventListener('click', askFollowup);
         }
 
         async function handleFileUpload(file) {
@@ -1042,13 +703,17 @@
             hideModelSelection();
             displayResults(DEMO_ANALYSIS_RESULT);
             const summaryDiv = document.getElementById('patientSummary');
-            summaryDiv.innerHTML = `<strong>${message}</strong><br>${DEMO_ANALYSIS_RESULT.patient_summary}`;
+            if (summaryDiv) {
+                summaryDiv.innerHTML = `<strong>${message}</strong><br>${DEMO_ANALYSIS_RESULT.patient_summary}`;
+            }
         }
 
         function displayResults(result) {
             // Show patient summary
             const summaryDiv = document.getElementById('patientSummary');
-            summaryDiv.innerHTML = result.patient_summary || 'No summary available.';
+            if (summaryDiv) {
+                summaryDiv.innerHTML = result.patient_summary || 'No summary available.';
+            }
             renderAnalysisDetails(result);
 
             // Check for urgent items
@@ -1058,11 +723,14 @@
             }
 
             // Show results area
-            document.getElementById('resultsArea').style.display = 'block';
+            const resultsArea = document.getElementById('resultsArea');
+            if (resultsArea) resultsArea.style.display = 'block';
         }
 
         function renderAnalysisDetails(result) {
             const detailsDiv = document.getElementById('analysisDetails');
+            if (!detailsDiv) return;
+            
             const patient = result.patient || {};
             const labs = result.labs || [];
             const medications = result.medications || [];
@@ -1070,7 +738,7 @@
             const recommendations = result.recommendations || [];
 
             const listItems = (items, renderer, fallback) => {
-                if (!items.length) return `<li class="list-group-item">${fallback}</li>`;
+                if (!items || !items.length) return `<li class="list-group-item">${fallback}</li>`;
                 return items.map(renderer).join('');
             };
 
@@ -1127,11 +795,13 @@
             const urgentAlerts = document.getElementById('urgentAlerts');
             const urgentItemsDiv = document.getElementById('urgentItems');
             
-            urgentItemsDiv.innerHTML = urgentItems.map(item => 
-                `<div class="mb-2">• ${item.text}</div>`
-            ).join('');
+            if (urgentItemsDiv) {
+                urgentItemsDiv.innerHTML = urgentItems.map(item => 
+                    `<div class="mb-2">• ${item.text}</div>`
+                ).join('');
+            }
             
-            urgentAlerts.style.display = 'block';
+            if (urgentAlerts) urgentAlerts.style.display = 'block';
         }
 
         function toggleStructuredData() {
@@ -1141,10 +811,10 @@
             if (structuredDiv.style.display === 'none') {
                 structuredDiv.style.display = 'block';
                 structuredDiv.querySelector('pre').textContent = JSON.stringify(currentAnalysisResult, null, 2);
-                toggleBtn.textContent = '📊 Hide Structured Data';
+                toggleBtn.textContent = 'Hide Structured Data';
             } else {
                 structuredDiv.style.display = 'none';
-                toggleBtn.textContent = '📊 View Structured Data';
+                toggleBtn.textContent = 'View Structured Data';
             }
         }
 
@@ -1179,8 +849,6 @@
         function askFollowup() {
             const question = prompt('What would you like to know about your medical report?');
             if (question) {
-                // In a real implementation, this would send the question to the LLM
-                // with the context of the current analysis
                 alert('Follow-up questions feature coming soon! Your question: "' + question + '"');
             }
         }
@@ -1188,36 +856,40 @@
         // UI Helper Functions
         function showProgress(text, percent) {
             const progressDiv = document.getElementById('uploadProgress');
-            const progressBar = progressDiv.querySelector('.progress-bar');
+            const progressBar = progressDiv?.querySelector('.progress-bar');
             const statusText = document.getElementById('statusText');
             
-            statusText.textContent = text;
-            progressBar.style.width = percent + '%';
-            progressDiv.style.display = 'block';
+            if (statusText) statusText.textContent = text;
+            if (progressBar) progressBar.style.width = percent + '%';
+            if (progressDiv) progressDiv.style.display = 'block';
         }
 
         function hideProgress() {
-            document.getElementById('uploadProgress').style.display = 'none';
+            const el = document.getElementById('uploadProgress');
+            if (el) el.style.display = 'none';
         }
 
         function showJobStatus(text) {
             const statusDiv = document.getElementById('jobStatus');
             const statusText = document.getElementById('statusText');
             
-            statusText.textContent = text;
-            statusDiv.style.display = 'block';
+            if (statusText) statusText.textContent = text;
+            if (statusDiv) statusDiv.style.display = 'block';
         }
 
         function hideJobStatus() {
-            document.getElementById('jobStatus').style.display = 'none';
+            const el = document.getElementById('jobStatus');
+            if (el) el.style.display = 'none';
         }
 
         function showModelSelection() {
-            document.getElementById('modelSelection').style.display = 'block';
+            const el = document.getElementById('modelSelection');
+            if (el) el.style.display = 'block';
         }
 
         function hideModelSelection() {
-            document.getElementById('modelSelection').style.display = 'none';
+            const el = document.getElementById('modelSelection');
+            if (el) el.style.display = 'none';
         }
     </script>
 </body>
